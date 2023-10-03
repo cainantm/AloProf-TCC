@@ -78,9 +78,14 @@ function pageGiveClasses(req,res){
 }
 
 
-const express = require('express')
+
+//const express = require('express')
+
+//const nunjucks = require('nunjucks')
+
+import express from 'express'
+import nunjucks from 'nunjucks'
 const server = express()
-const nunjucks = require('nunjucks')
 
 //configs nunjucks
 nunjucks.configure('src/views', {
