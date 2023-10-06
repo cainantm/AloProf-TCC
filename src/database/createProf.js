@@ -1,4 +1,4 @@
-export default async function (db, { profValue, classValue, classScheduleValues }) {
+export default async function createProf(db, { profValue, classValue, classScheduleValues }) {
     //inserir dados na tabela de professores
     const insertedProf = await db.run(`
         INSERT INTO profs (

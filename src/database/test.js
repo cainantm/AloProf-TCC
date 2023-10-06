@@ -1,5 +1,5 @@
 import Database from "./db.js"
-import createProf from "./createProf.js"
+import createProf from "./createprof.js"
 
 Database.then(async(db) => {
     //Inserir dados
@@ -29,9 +29,34 @@ Database.then(async(db) => {
         }
     ]
 
-    await createProf(db, {profValue, classValue, classScheduleValues})
+    //await createProf(db, {profValue, classValue, classScheduleValues})
 
     //Consultar dados
 
+    //todos os profs
+    const selectedProfs = await db.all("SELECT * FROM profs")
+    // console.log(selectedProfs)
 
+    //consultar classes de um determinado prof
+    // e trazer os dados do prof
+
+    const selectClassesProfs = await db.all(`
+        SELECT classes.*, profs.*
+        FROM profs
+        JOIN classes ON (profs.id = classes.prof_id)
+        WHERE classes.prof_id = 1;
+    `)
+
+    
+
+    const selectClassesSchedules = await db.all(`
+        SELECT class_schedule.*
+        FROM class_schedule
+        WHERE class_schedule.class_id = "1"
+        AND class_schedule.weekday = "0"
+        AND class_schedule.time_from <= "520"
+        AND class_schedule.time_to > "520"
+    `)
+
+    //console.log(selectClassesSchedules)
 })
