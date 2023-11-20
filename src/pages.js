@@ -87,20 +87,4 @@ async function saveClasses(req, res) {
 
 }
 
-function pageLogin(req, res){
-    return res.render("login.ejs")
-}
-
-function login(req, res){
-
-}
-
-function pageRegister(req, res){
-    return res.render("register.ejs")
-}
-
-function register(req,res){
-    
-}
-
-export { pageLanding, pageStudy, pageGiveClasses, saveClasses, pageLogin, pageRegister }
+export { pageLanding, pageStudy, pageGiveClasses, saveClasses }
